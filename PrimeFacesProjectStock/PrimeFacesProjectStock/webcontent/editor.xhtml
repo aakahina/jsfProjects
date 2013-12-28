@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body style="background-color: Silver">
+<center>
+ <ui:include src="/snippets/menu.xhtml"/>
+<br/><br/> <br/><br/>
+<h:form id="form"> 
+<p:editor id="editor" value="#{editorBean.value}" width="600"/>  
+  
+    <h:panelGrid columns="2" style="margin-top:10px">  
+        <p:commandButton id="submitButton" value="Submit" update="display" oncomplete="PF('dlg').show()"  
+                        icon="ui-icon-disk" />  
+        <p:commandButton id="clearButton" type="button" value="Clear" onclick="PF('editor').clear()"  
+                        icon="ui-icon-close" />  
+    </h:panelGrid>  
+  
+    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">  
+        <h:outputText id="display" value="#{editorBean.value}" escape="false" />  
+    </p:dialog>  
+</h:form>  
+  <br/><br/> <br/><br/>
+<ui:include src="/snippets/footer.xhtml"/>
+</center>
+</h:body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+ 
+<h:form>  
+   <p:growl id="messages" showDetail="true" life="2000" />  
+  
+    <p:gmap center="41.381542, 2.122893" zoom="15" type="ROADMAP" style="width:600px;height:400px">  
+  
+        <p:ajax event="stateChange" listener="#{mapBean.onStateChange}" update="messages" />  
+        <p:ajax event="pointSelect" listener="#{mapBean.onPointSelect}" update="messages" />  
+  
+    </p:gmap> 
+    <br/> <br/> <br/>
+    
+    
+<!--     <p:gmap model="#{addPlaceBean.emptyModel}" center="41.381542, 2.122893" zoom="10" type="ROADMAP" style="width:600px;height:600px" id="map">   -->
+        
+<!--    </p:gmap>  -->
+  <p:gmap center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:600px;height:400px" model="#{mapBean.simpleModel}" />
+</h:form>  
+
+</h:body>
+</html>
